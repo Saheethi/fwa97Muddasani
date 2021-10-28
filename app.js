@@ -5,8 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/mydata');
 var usersRouter = require('./routes/users');
-var mydataRouter = require('./routes/mydata');
+//var mydataRouter = require('./routes/mydata');
 
 var app = express();
 
@@ -17,7 +18,7 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use('/mydata',mydataRouter);
+app.use('/mydata',indexRouter);
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
